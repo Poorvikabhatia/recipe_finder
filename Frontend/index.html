@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🍲 Dishcovery - Smart Recipe Finder</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <!-- Left: Logo + Search -->
+      <div class="left-section">
+        <h1>🍲 Dishcovery</h1>
+        <div class="search-box">
+          <input type="text" id="ingredients" placeholder="e.g. tomato, cheese, pasta">
+          <button id="searchBtn">Find Recipes</button>
+          <button id="surpriseBtn">🎲 Surprise Me</button>
+        </div>
+      </div>
+
+      <!-- Right: Navigation -->
+      <nav class="nav-links">
+        <a href="#">Home</a>
+        <a href="#">About Us</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <!-- Recipes -->
+    <section id="recipes">
+      <div id="recipeResults"></div>
+    </section>
+
+    <!-- Food Facts -->
+    <section class="food-facts">
+      <h2>🍽️ Did You Know?</h2>
+      <p id="factText">Pizza was invented in Naples, Italy in the 18th century.</p>
+    </section>
+
+    <!-- Popular Dishes -->
+    <section class="gallery">
+      <h2>🍴 Popular Dishes</h2>
+      <div class="gallery-container">
+        <div class="gallery-item">
+          <img src="https://t3.ftcdn.net/jpg/00/27/57/96/360_F_27579652_tM7V4fZBBw8RLmZo0Bi8WhtO2EosTRFD.jpg" alt="Pizza">
+          <p>Pizza</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://marketplace.canva.com/KV0BI/MAEFncKV0BI/1/tl/canva-pasta-with-tomato-sauce-MAEFncKV0BI.jpg" alt="Pasta">
+          <p>Pasta</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://t3.ftcdn.net/jpg/02/97/13/58/360_F_297135896_Y9HQ2k7WRIWj55l7LMSB6zQBh3KJ7aBV.jpg" alt="Salad">
+          <p>Salad</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://static.vecteezy.com/system/resources/thumbnails/023/809/530/small/a-flying-burger-with-all-the-layers-ai-generative-free-photo.jpg" alt="Burger">
+          <p>Burger</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://www.nehascookbook.com/wp-content/uploads/2022/10/Veg-sizzler-WS-500x375.jpg" alt="Veg Sizzler">
+          <p>Veg Sizzler</p>
+        </div>
+        <div class="gallery-item">
+          <img src="https://t3.ftcdn.net/jpg/04/47/95/48/360_F_447954890_nYoJ3Lm6OElMe0LogDry2KfHF4tXsfMw.jpg" alt="Manchurian">
+          <p>Manchurian</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with ❤️ using Spoonacular API</p><br>
+    <p>&copy; 2025 Dishcovery. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
