@@ -1,4 +1,7 @@
-// Fun facts for "Did you know" box
+// 🔹 Backend API base URL
+const API_BASE = "https://recipe-finder-api-a7zz.onrender.com";
+
+// 🔹 Fun facts for "Did you know" box
 const facts = [
   "Tomatoes are the most consumed vegetable in the world.",
   "Carrots were originally purple before becoming orange.",
@@ -12,10 +15,13 @@ function updateFact() {
   const randomFact = facts[Math.floor(Math.random() * facts.length)];
   factBox.textContent = randomFact;
 }
+
+// Update fun fact every 5 seconds
 setInterval(updateFact, 5000);
 
 let lastResults = [];
 
+// 🔹 Search button logic
 document.getElementById("searchBtn").addEventListener("click", () => {
   const ingredients = document.getElementById("ingredients").value.trim();
   if (!ingredients) {
@@ -23,14 +29,15 @@ document.getElementById("searchBtn").addEventListener("click", () => {
     return;
   }
 
-  // Call Flask backend instead of Spoonacular directly
-  fetch(`http://127.0.0.1:5000/api/recipes?query=${ingredients}`)
+  // Call deployed backend API
+  fetch(`${API_BASE}/api/recipes?query=${ingredients}`)
     .then(response => response.json())
     .then(data => {
       const recipesDiv = document.getElementById("recipes");
       recipesDiv.innerHTML = ""; // clear old results
 
       if (data.results && data.results.length > 0) {
+        lastResults = data.results; // save results for "Surprise Me"
         data.results.forEach(recipe => {
           const card = document.createElement("div");
           card.classList.add("recipe-card");
@@ -45,6 +52,7 @@ document.getElementById("searchBtn").addEventListener("click", () => {
           recipesDiv.appendChild(card);
         });
       } else {
+        lastResults = [];
         recipesDiv.innerHTML = "<p>No recipes found. Try different ingredients.</p>";
       }
 
@@ -57,9 +65,7 @@ document.getElementById("searchBtn").addEventListener("click", () => {
     });
 });
 
-
-
-// Surprise Me button logic
+// 🔹 Surprise Me button logic
 document.getElementById("surpriseBtn").addEventListener("click", () => {
   const recipeCards = document.querySelectorAll(".recipe-card");
   if (recipeCards.length === 0) {
@@ -76,6 +82,3 @@ document.getElementById("surpriseBtn").addEventListener("click", () => {
   randomRecipe.style.border = "3px solid orange";
   randomRecipe.scrollIntoView({ behavior: "smooth", block: "center" });
 });
-
-
-
